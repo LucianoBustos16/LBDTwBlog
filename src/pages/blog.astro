@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from '../layouts/Layout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const allPosts = await getCollection("posts");
+
+
+const title = "Mi blog de Astro aprendizaje";
+---
+
+<Layout title={title}>
+
+	<p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro.</p>
+	
+
+	<ol>
+		{allPosts.map((post) =>
+			 <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
+		)}
+
+	</ol>
+
+</Layout>
+
+
+
