@@ -8,21 +8,9 @@ const menu = [
         href: "/",
     },
     {
-        name: "Equipos",
-        href: "/equipos",
-    },
-    {
         name: "Blog",
         href: "/blog",
-    },
-    {
-        name: "Leagues",
-        href: "/leagues",
-    },
-    {
-        name: "Api",
-        href: "https://api.lbdtwplus.com.ar/",
-    },
+    }
 ];
 ---
 
@@ -101,7 +89,7 @@ const menu = [
 </header>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener('astro:page-load', () => {
         const mobileMenuToggle = document.querySelector(
             "[data-collapse-toggle='mobile-menu-2']"
         );

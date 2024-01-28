@@ -1,11 +1,12 @@
 ---
-
-import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro';
+import Layout from '../layouts/Layout.astro';
 const { frontmatter } = Astro.props;
 import { fade } from "astro:transitions";
 ---
 
 <Layout title="Luchito">
+  <Nav/>
     <h1>{frontmatter.title}</h1>
     <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
     <p transition:animate={fade({ duration: '2s' })} ><em>{frontmatter.description}</em></p>
