@@ -1,21 +1,28 @@
 ---
-interface Props {
-    class?: string
-    title: string
-    subtitle?: string
-}
+import { getCollection } from "astro:content";
 
-const {title, subtitle } = Astro.props
+
+const allPosts = await getCollection("posts");
+
 ---
 
-<article
-    class={`
-        ${Astro.props.class}
-        relative rounded-xl
-        backdrop-blur-md
-        border border-white/10
-        col-span-5
-    `}>
-    <h2>{title}</h2>
-    {subtitle && <h3>{subtitle}</h3>}
-</article>
+{allPosts.slice(0, 4).map((post, index) => (
+    <article
+        class={`
+            ${Astro.props.class}
+            relative rounded-xl
+            backdrop-blur-md
+            border border-white/10
+            col-span-10
+            ${index === 0 || index === 3 ? 'md:col-span-6' : 'md:col-span-4'}
+        `}>
+
+        <slot name="image"></slot>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.author}</p> 
+        <img src={post.data.image.url} alt={post.data.image.alt}  >
+    
+
+    </article>
+))}
+
