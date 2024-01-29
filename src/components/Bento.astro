@@ -1,0 +1,24 @@
+---
+interface Props {
+    class?: string
+    title: string
+    subtitle?: string
+}
+
+import BentoItem from "./BentoItem.astro";
+
+---
+
+<section
+ class={`
+ w-full max-w-[1400px]
+ flex md:grid grid-cols-10 auto-rows-[35rem] gap-4
+ mx-auto p-20
+ text-gray-100
+ `}>
+    <BentoItem class="col-span-10 md:col-span-4" title="Titulo " subtitle="Subtitulo"/>
+    <BentoItem class="col-span-10 md:col-span-6" title="Titulo " subtitle="Subtitulo"/>
+    <BentoItem class="col-span-10 md:col-span-6" title="Titulo "/>
+    <BentoItem class="col-span-10 md:col-span-4" title="Titulo " subtitle="Subtitulo"/>    
+
+</section>
