@@ -22,5 +22,8 @@ export default {
 			  }
 		},
 	},
-	plugins: [animations],
+	plugins: [
+		animations,
+		require('tailwind-scrollbar-hide')
+	],
 }
