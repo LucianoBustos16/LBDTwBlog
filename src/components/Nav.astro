@@ -20,12 +20,12 @@ const menu = [
             class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
         >
         <a
-		class=' block hover:scale-110 transition'
-		href='/'
-		aria-label='Ir a la página principal'
-	>
+            class=' block hover:scale-110 transition'
+            href='/'
+            aria-label='Ir a la página principal'
+        >
            <Logo class="h-auto w-12 lg:w-16 text-primary-500 block"/>
-           </a>
+        </a>
 
             <div class="flex items-end lg:order-1">
                 
@@ -69,13 +69,14 @@ const menu = [
                 >
                     {
                         menu.map(({ name, href }) => (
-                            <li>
+                            <li class="md:flex">
                                 <a
                                     class={`transition ${
                                         Astro.url.pathname === href
-                                            ? "opacity-100 pointer-events-none block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                                            ? "opacity-100 pointer-events-none block py-2 pr-4 pl-3 text-primary-500 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-primary-500"
                                             : "hover:underline-offset-8"
-                                    } block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700` }
+                                    }                                     
+                                    flex items-center py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700` }
                                                                       href={href}
                                     rel={
                                         Astro.url.pathname !== href
