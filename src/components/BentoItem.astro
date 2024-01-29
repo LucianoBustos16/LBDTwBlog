@@ -18,9 +18,11 @@ const allPosts = await getCollection("posts");
         `}>
 
         <slot name="image"></slot>
-        <h2>{post.data.title}</h2>
-        <p>{post.data.author}</p> 
         <img src={post.data.image.url} alt={post.data.image.alt}  >
+        <div class="select-none flex flex-col gap-1 p-6 text-lg z-20 justify-end h-full">
+            <h2 class="font-bold text-balance text-white mb-4">{post.data.title}</h2>
+            <p>{post.data.author}</p>         
+        </div>
     
 
     </article>
