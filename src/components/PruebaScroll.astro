@@ -1,152 +1,53 @@
-<div class="flex col-span-4 flex-col">
+---
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+---
+
+<div class="flex flex-col">
     <h4 class="font-bold">Equipos</h4>
 
-    <div class="overflow-scroll p-4 scrollbar-hide">
-        <div class="swiper w-full h-full flex gap-2 snap-mandatory scroll-m-4">
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start ">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="swiper-wrapper snap-start">
-                    <div class="bg-white w-16 h-16 p-2 rounded-lg shadow-md">
-                        <img
-                            src=""
-                            alt={`Escudo de`}
-                            class="bg-red-500"
-                            width="48"
-                            height="48"
-                        />
-                    </div>
-                </div>
-            </a>
+    <div class="
+        overflow-scroll p-4 scrollbar-hide
+        w-full max-w-[1400px]
+        flex md:grid md:grid-cols-10 auto-rows-[10rem] md:auto-rows-[25rem] gap-4
+        mx-auto md:p-20
+        text-gray-100"
+        >
+        
+            {allPosts.slice(0, 4).map((post, index) => (
+            <article
+                class={`
+                    relative rounded-xl
+                    backdrop-blur-md
+                    border border-white/10
+                    w-[350px] h-[260px]
+                    md:w-full
+                    md:h-full
+                    col-span-10
+                    overflow-y-clip
+                    group   
+                    ${index === 0 || index === 3 ? 'md:col-span-6' : 'md:col-span-4'}                 
+                `}>
+                <div class="absolute -z-10 bottom-0 top-0 w-full h-full
+                bg-gradient-to-b from-transparent from-40% via-black/20 to-black/80">
+             </div>
+             
+                <div class="relative select-none flex flex-col gap-1 p-2 lg:p-6 text-lg justify-end h-full">
+            <h2 class="font-bold text-balance text-white mb-4">{post.data.title}</h2>
+            <p>{post.data.author}</p>         
         </div>
+        <div class=" h-full w-[350px]">
+            <img src={post.data.image.url} alt={post.data.image.alt} 
+            class="absolute left-0 bottom-0 object-cover w-full h-full object-center -z-20
+            group-hover:scale-110 transition-scale duration-500 ease-in-out" >
+        </div>
+
+        
+    
+
+    </article>
+            ))}
+        
     </div>
 </div>
