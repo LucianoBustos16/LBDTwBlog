@@ -2,20 +2,14 @@
 
 import BentoItem from "./BentoItem.astro";
 
-const { frontmatter } = Astro.props;
 ---
 
-<section class="p-4 w-full max-w-[1400px] mx-auto md:p-20"
- >
- <h4 class="font-bold">Equipos</h4>
-    <div class={`
-        overflow-scroll  scrollbar-hide
-        
-        flex md:grid md:grid-cols-10 auto-rows-[10rem] md:auto-rows-[25rem] gap-4
-        
-        text-gray-100"
- `}>
+<section class="p-4 w-full max-w-[1400px] mx-auto md:p-12">
+
+    <div class={`overflow-scroll scrollbar-hide flex md:grid md:grid-cols-10 auto-rows-[10rem] md:auto-rows-[25rem] gap-4 text-gray-100"`}>
+
         <BentoItem />
 
     </div>
+
 </section>
